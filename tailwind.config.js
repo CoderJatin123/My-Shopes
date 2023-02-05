@@ -29,6 +29,13 @@ module.exports = {
           DEFAULT:"#56E39F",
           dark:"#56E39F",
         },
+        card:{
+          DEFAULT:"#EAEAEA"
+        },
+        red:{
+          light:"#FFE5E5"
+        }
+      ,
       }
     },
     
