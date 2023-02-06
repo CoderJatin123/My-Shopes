@@ -30,7 +30,7 @@ module.exports = {
           dark:"#56E39F",
         },
         card:{
-          DEFAULT:"#EAEAEA"
+          DEFAULT:"#EEEEEE"
         },
         red:{
           light:"#FFE5E5"

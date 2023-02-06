@@ -2,6 +2,16 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 export default function Home() {
+
+  const cards=[{img:"https://m.media-amazon.com/images/I/812B6F8vJwL._SX450_.jpg",
+  title:"Up to 60% off | Home decor picks from local shops"},
+
+  {img:"https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2021/wrs/mencombo_low._SY304_CB666768535_.jpg",
+  title:"Value Packs under ₹599 | My Shops Brands & more"},
+
+  {img:"https://m.media-amazon.com/images/I/71jDgbvJQCL._AC_SY200_.jpg",title:"Up to 50% off | Winter essentials from local shops "},
+
+  {img:"https://images-eu.ssl-images-amazon.com/images/G/31/img22/Electronics/Clearance/Clearance_store_Desktop_CC_1x._SY304_CB628315133_.jpg",title:"Up to 70% off | Clearance store"}]
   return (
     <>
       <Head>
@@ -12,35 +22,68 @@ export default function Home() {
       </Head>
       <main className='h-full w-full px-5'>
 
-        <div className='bg-cyan-3001 flex flex-col sm:flex-row justify-around mt-10'>
 
+        <div className='flex flex-col'>
 
-          <div className='flex flex-col '>
+          <div className='bg-cyan-3001 flex flex-col sm:flex-row justify-around mt-6'>
 
-            <h1 className='text-xl font-extrabold text-primary py-4 mt-2'>
-              {/* Initial discount */}
-              Get <span className='text-red-500 px-1'> 70%</span>off on first purchase.
-            </h1>
-            <div className='bg-red-light my-6'>
-              <h3 className='text-primary-dark text-base py-6 pl-5 font-semibold'>
-                Diwali festival starts from 12 oct
+            <div className='flex flex-col '>
+
+              <h1 className='text-xl font-extrabold text-primary py-4 mt-2'>
+                {/* Initial discount */}
+                Get <span className='text-red-500 px-1'> 70%</span>off on first purchase.
+              </h1>
+              <div className='bg-red-light my-6'>
+                <h3 className='text-primary text-base py-6 pl-5 font-semibold'>
+                  Diwali festival starts from 12 oct
+                </h3>
+              </div>
+            </div>
+
+            <div className='flex flex-col py-4 items-center'>
+
+              {/* Product advertisement */}
+
+              <div>
+                <img width={200} height={200} src='https://m.media-amazon.com/images/I/71J8tz0UeJL._AC_UY218_.jpg' />
+              </div>
+              <h3 className='text-base font-bold text-primary-dark my-4'>
+                Samsung S22 PRO MAX
+                <br />
+                <span className='text-red-500'>10% OFF</span>
               </h3>
-            </div>
-          </div>
 
-          <div className='flex flex-col my-6 items-center'>
-            
-            <div>
-            <Image width={200} height={200} src='/samsung.png' />
             </div>
-            <h3 className='text-base font-bold text-primary-dark my-6'>
-              Samsung S22 PRO MAX
-              <br/>
-              <span className='text-red-500'>10% OFF</span>
-            </h3>
 
           </div>
 
+          <div className='sm:grid-cols-none  sm:flex sm:flex-row gap-2 my-5 sm:gap-2 grid grid-cols-2  '>
+
+            {/* All cards */}
+
+
+            {
+              cards.map((item,index)=>{
+                return(
+                  <div key={index} className='  flex flex-col sm:w-72 bg-card justify-between my-1 p-1 lg:p-2 hover:bg-green-100 hover:-translate-y-2 duration-300'>
+
+                  {/* This is first card */}
+                  <div className='grow flex flex-col justify-center'>
+                    <img className='object-cover p-1 sm:w-44 ' src={item.img} />
+                  </div>
+                  <h5 className='text-sm text-primary font-medium my-2 px-1'>
+                   {item.title}
+                  </h5>
+                </div>
+                )
+              })
+            }
+
+          
+
+          
+
+          </div>
         </div>
 
 
