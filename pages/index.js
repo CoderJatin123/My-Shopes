@@ -20,12 +20,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/my-shops.svg" />
       </Head>
-      <main className='h-full w-full px-5'>
+      <main className='h-full w-full px-5 sm:px-9'>
 
 
         <div className='flex flex-col'>
 
-          <div className='bg-cyan-3001 flex flex-col sm:flex-row justify-around mt-6'>
+          <div className='bg-cyan-30 flex flex-col sm:flex-row justify-around mt-6'>
 
             <div className='flex flex-col '>
 
@@ -65,11 +65,11 @@ export default function Home() {
             {
               cards.map((item,index)=>{
                 return(
-                  <div key={index} className='  flex flex-col sm:w-72 bg-card justify-between my-1 p-1 lg:p-2 hover:bg-green-100 hover:-translate-y-2 duration-300'>
+                  <div key={index} className='  flex flex-col sm:w-72  bg-card justify-between my-1 p-1 lg:p-3 hover:bg-green-100 hover:-translate-y-2 duration-300'>
 
                   {/* This is first card */}
                   <div className='grow flex flex-col justify-center'>
-                    <img className='object-cover p-1 sm:w-44 ' src={item.img} />
+                    <img className='object-cover p-1  w-full' src={item.img} />
                   </div>
                   <h5 className='text-sm text-primary font-medium my-2 px-1'>
                    {item.title}

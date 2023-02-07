@@ -13,7 +13,7 @@ module.exports = {
         'open-sans':['Open Sans']
       },
       fontSize:{
-        sm: ['15px', '21px'],
+        sm: ['14px', '20px'],
         base: ['16px', '24px'],
         lg: ['24px', '32px'],
         xl: ['32px', '38px'],
@@ -40,5 +40,7 @@ module.exports = {
     },
     
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }
