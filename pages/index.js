@@ -3,15 +3,19 @@ import Image from 'next/image'
 
 export default function Home() {
 
-  const cards=[{img:"https://m.media-amazon.com/images/I/812B6F8vJwL._SX450_.jpg",
-  title:"Up to 60% off | Home decor picks from local shops"},
+  const cards = [{
+    img: "https://m.media-amazon.com/images/I/812B6F8vJwL._SX450_.jpg",
+    title: "Up to 60% off | Home decor picks from local shops"
+  },
 
-  {img:"https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2021/wrs/mencombo_low._SY304_CB666768535_.jpg",
-  title:"Value Packs under ₹599 | My Shops Brands & more"},
+  {
+    img: "https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2021/wrs/mencombo_low._SY304_CB666768535_.jpg",
+    title: "Value Packs under ₹599 | My Shops Brands & more"
+  },
 
-  {img:"https://m.media-amazon.com/images/I/71jDgbvJQCL._AC_SY200_.jpg",title:"Up to 50% off | Winter essentials from local shops "},
+  { img: "https://m.media-amazon.com/images/I/71jDgbvJQCL._AC_SY200_.jpg", title: "Up to 50% off | Winter essentials from local shops " },
 
-  {img:"https://images-eu.ssl-images-amazon.com/images/G/31/img22/Electronics/Clearance/Clearance_store_Desktop_CC_1x._SY304_CB628315133_.jpg",title:"Up to 70% off | Clearance store"}]
+  { img: "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Electronics/Clearance/Clearance_store_Desktop_CC_1x._SY304_CB628315133_.jpg", title: "Up to 70% off | Clearance store" }]
   return (
     <>
       <Head>
@@ -27,24 +31,28 @@ export default function Home() {
 
           <div className='bg-cyan-30 flex flex-col sm:flex-row justify-around mt-6'>
 
-            <div className='flex flex-col '>
+            <div className='flex flex-col justify-center grow'>
 
-              <h1 className='text-xl font-extrabold text-primary py-4 mt-2'>
-                {/* Initial discount */}
-                Get <span className='text-red-500 px-1'> 70%</span>off on first purchase.
-              </h1>
-              <div className='bg-red-light my-6'>
-                <h3 className='text-primary text-base py-6 pl-5 font-semibold'>
-                  Diwali festival starts from 12 oct
-                </h3>
+              <div className='flex flex-col md:mx-24'>
+
+                <h1 className='text-4xl font-bold text-primary py-4 mt-2'>
+                  {/* Initial discount */}
+                  Get <span className='text-red-500 px-1'> 70%</span>off on first purchase.
+                </h1>
+                <div className='bg-red-light my-6 '>
+                  <h3 className='text-primary text-lg py-6 pl-5 font-semibold'>
+                    Diwali festival starts from 12 oct
+                  </h3>
+                </div>
               </div>
+
             </div>
 
-            <div className='flex flex-col py-4 items-center'>
+            <div className='flex flex-col py-4 items-center md:items-start  grow'>
 
               {/* Product advertisement */}
 
-              <div>
+              <div className=''>
                 <img width={200} height={200} src='https://m.media-amazon.com/images/I/71J8tz0UeJL._AC_UY218_.jpg' />
               </div>
               <h3 className='text-base font-bold text-primary-dark my-4'>
@@ -57,31 +65,30 @@ export default function Home() {
 
           </div>
 
-          <div className='sm:grid-cols-none  sm:flex sm:flex-row gap-2 my-5 sm:gap-2 grid grid-cols-2  '>
+          <div className=' md:grid-cols-3 lg:flex lg:flex-row my-5 gap-2 grid grid-cols-2 '>
 
             {/* All cards */}
 
 
             {
-              cards.map((item,index)=>{
-                return(
-                  <div key={index} className='  flex flex-col sm:w-72  bg-card justify-between my-1 p-1 lg:p-3 hover:bg-green-100 hover:-translate-y-2 duration-300'>
+              cards.map((item, index) => {
+                return (
+                  <div key={index} className='  flex flex-col lg:w-72 bg-card justify-between my-1 p-3 hover:bg-green-100 hover:-translate-y-2 duration-300'>
 
-                  {/* This is first card */}
-                  <div className='grow flex flex-col justify-center'>
-                    <img className='object-cover p-1  w-full' src={item.img} />
+                    <div className='grow flex flex-col justify-center'>
+                      <img className='object-cover p-1  w-full' src={item.img} />
+                    </div>
+                    <h5 className='text-xl tracking-tight text-primary font-medium my-2 px-1'>
+                      {item.title}
+                    </h5>
                   </div>
-                  <h5 className='text-sm text-primary font-medium my-2 px-1'>
-                   {item.title}
-                  </h5>
-                </div>
                 )
               })
             }
 
-          
 
-          
+
+
 
           </div>
         </div>

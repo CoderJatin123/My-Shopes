@@ -10,30 +10,37 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        'open-sans':['Open Sans']
-      },
-      fontSize:{
-        sm: ['14px', '20px'],
-        base: ['16px', '24px'],
-        lg: ['24px', '32px'],
-        xl: ['32px', '38px'],
-        '2xl':['42px','50px']
+      'inter':'Inter',
+      },  
+         
+      fontWeight:{
+        regular:'400',
+        medium:'500',
+        semibold:'600',
+        bold:'700'
       },
       
       colors:{
+
         primary:{
           DEFAULT:"#465775",
           dark:"#37445C",
         },
         secondary:{
           DEFAULT:"#56E39F",
-          dark:"#56E39F",
+          dark:"#4CC98D",
         },
         card:{
           DEFAULT:"#EEEEEE"
         },
         red:{
           light:"#FFE5E5"
+        },
+
+        button:{
+          gray:'#54688C',
+          light:'#47BA82',
+          
         }
       ,
       }
