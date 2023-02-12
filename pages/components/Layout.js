@@ -4,9 +4,12 @@ import Topbar from './Topbar';
 
 const Layout = ({children}) => {
   return (
-    <div>
+    <div className=''>
       <Topbar />
+      <div className='mx-6 sm:mx-7'>
       {children}
+      </div>
+
       <Fotter />
     </div>
   );

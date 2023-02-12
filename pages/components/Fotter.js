@@ -7,7 +7,7 @@ const Fotter = () => {
   const router=useRouter();
 
   return (
-    <div className='bg-primary w-full  text-center'>
+    <div className='bg-primary-dark w-full  text-center'>
 
       <h5 className='pt-6'>
       <a className=' text-white' href='#'>Back to top</a>

@@ -8,7 +8,7 @@ const products = () => {
     <div className='flex justify-center'>
 
     
-    <div className='w-full h-full flex flex-col mx-4 md:mx-0 md:w-11/12 lg:w-10/12 content-center mb-10'>
+    <div className='w-full h-full flex flex-col md:mx-0 md:w-11/12 lg:w-10/12 content-center mb-10'>
 
       {/* Heading */}
       <h2 className='my-4 text-3xl text-primary font-semibold py-3'>Results</h2>

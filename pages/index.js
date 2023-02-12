@@ -24,8 +24,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/my-shops.svg" />
       </Head>
-      <main className='h-full w-full px-5 sm:px-9'>
 
+      <main className='h-full w-full  sm:px-9'>
 
         <div className='flex flex-col'>
 
