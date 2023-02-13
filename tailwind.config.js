@@ -28,7 +28,7 @@ module.exports = {
         },
         secondary:{
           DEFAULT:"#56E39F",
-          dark:"#4CC98D",
+          dark:"#49C288",
         },
         card:{
           DEFAULT:"#EEEEEE"

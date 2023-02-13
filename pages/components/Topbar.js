@@ -13,6 +13,10 @@ const Topbar = () => {
     router.push({pathname:`/login`})
   }
 
+  const handleCart=()=>{
+    router.push({pathname:`/Mycart/cart`})
+  }
+
   return (
 
     <div className='grid grid-cols-2 sm:grid-cols-8 justify-between items-center py-1 place-content-between md:bg-cyan-4001  sm:bg-yellow-4001 pt-5 sm:pt-3 sm:px-2  text-primary mx-6 sm:mx-5'>
@@ -39,14 +43,17 @@ const Topbar = () => {
 
         <div className='flex flex-row sm:w-11/12  md:ml-10 w-9/12 lg:w-2/3 justify-between   font-medium '>
           <h3>Category</h3>
-
+           
+     
           <button onClick={()=>{handleTrending()}}>Trending</button>
 
-          <div className='flex flex-row'>
+           {/* cart */}
+          <div className='flex flex-row cursor-pointer' onClick={(e)=>{handleCart()}}>
+
             <h5 className='text-subtitle  font-medium'>(0)</h5>
             <Image className='mx-1' src={'/my-shops.svg'} width={20} height={20} alt="Logo" />
           </div>
-          <h3>Help</h3>
+          <h3 className='cursor-pointer' >Help</h3>
         </div>
       </div>
       <div className='sm:order-4 order-2 w-full flex justify-end sm:justify-center text-primary-dark text-end px-1 sm:text-center  sm:font-medium text-2xl font-semibold sm:text-base  '>

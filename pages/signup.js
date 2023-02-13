@@ -166,7 +166,7 @@ const signup = () => {
           <span className='mx-2 my-2  text-red-500 text-base'>{err}</span>
         }
 
-          <button className={`bg-secondary-dark text-white w-80  text-xl font-semibold py-2 px-3 leading-8  rounded-md tracking-wider duration-200 hover:bg-green-500`} onClick={handleSignup}
+          <button className={`drop-shadow-md bg-secondary-dark text-white w-80  text-xl font-semibold py-2 px-3 leading-8  rounded-md tracking-wider duration-200 hover:bg-green-500`} onClick={handleSignup}
          >Sign In</button>
 
 

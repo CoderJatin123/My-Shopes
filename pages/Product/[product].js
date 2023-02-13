@@ -102,7 +102,7 @@ const Product = () => {
             </button>
           </div>
 
-          <div className="my-5 text-lg sm:text-base flex sm:font-normal font-medium">
+          <div className="my-5 text-lg sm:text-base flex sm:font-normal font-medium" >
             <h4>Add to favorite</h4>
 
             <svg

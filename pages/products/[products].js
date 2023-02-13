@@ -13,7 +13,7 @@ const products = () => {
       {/* Heading */}
       <h2 className='my-4 text-3xl text-primary font-semibold py-3'>Results</h2>
 
-      <div className='grid grid-cols-2 sm:grid-cols-2 md:sm:grid-cols-3  lg:grid-cols-4 font-medium text-primary gap-3 sm:gap-3'>
+      <div className='grid grid-cols-2 sm:grid-cols-2 md:sm:grid-cols-3  lg:grid-cols-4 font-medium text-primary gap-3 sm:gap-4'>
 
         {data.map((item,index)=>{
           return(
