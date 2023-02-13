@@ -1,20 +1,28 @@
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import UserContext from '@/context/userContext';
+import { useContext } from 'react';
 
 const Topbar = () => {
 
+  const {search,setSearch}=useContext(UserContext)
   const router =useRouter();
-  
+
   const handleTrending=()=>{
     router.push({pathname:`/products/trending`})
   }
+
   const handleLogin=()=>{
     router.push({pathname:`/login`})
   }
 
   const handleCart=()=>{
     router.push({pathname:`/Mycart/cart`})
+  }
+
+  const changeSerach=(value)=>{
+    setSearch(value)
   }
 
   return (
@@ -34,7 +42,7 @@ const Topbar = () => {
       <div className='w-full rounded-sm my-6 sm:my-2 sm:col-span-2 flex flex-row justify-end sm:order-2 col-span-2 order-3'>
         {/* searchbar */}
 
-        <input id="search" type={'text'} className=' bg-card h-full sm:px-3 sm:py-3 py-5 px-5 hover:outline-none outline-none rounded-lg sm:rounded-md sm:text-base text-xl font-medium w-full' placeholder='Search here' />
+        <input id="search" type={'text'} className=' bg-card h-full sm:px-3 sm:py-3 py-5 px-5 hover:outline-none outline-none rounded-lg sm:rounded-md sm:text-base text-xl font-medium w-full' placeholder='Search here' onChange={(e)=>{changeSerach(e.target.value)}} name={search} />
       </div>
 
       <div className='px-1 place-self-center justify-start sm:justify-end flex flex-row  font-medium  sm:col-span-3 col-span-2 sm:order-3 order-4 w-full text-xl sm:text-base'>

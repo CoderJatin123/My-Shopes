@@ -3,9 +3,7 @@ import React from 'react';
 
 const Card = ({product}) => {
 
-
   const router=useRouter();
-
   const handleProduct=(pid)=>{
     router.push(`/Product/${pid}`)
   }
@@ -17,14 +15,15 @@ const Card = ({product}) => {
                
                {/* product image */}
                <div className='aspect-w-4 aspect-h-3'>
-               <img className='object-cover' src={product.img}/>
+               <img className='object-cover' src={product.image}/>
                </div>
 
                {/* product description */}
                
                {/* title of product */}
                <div>
-               <h3 className='text-base leading-5 pb-1 font-medium mb-2 mt-6'>{product.name}</h3>
+                
+               <h3 className='text-base leading-5 pb-1 font-medium mb-2 mt-6'>{product.name.substring(0,99)+"..."}</h3>
                
                {/* price and rating of product */}
                <div className='flex flex-row justify-between'>

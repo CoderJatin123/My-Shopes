@@ -1,43 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { data } from "@/data/products";
-import Card from "../components/card";
 import Minicard from "../components/minicard";
 
-const Product = () => {
-
-
+const Product = ({product,suggestions}) => {
 
   const [isFavorite, setFavorite] = useState(false);
-  const product = {
-    pid: 1,
-    price: 41990,
-    name: "ASUS Vivobook 14, 14.0-inch (35.56 cms) FHD, Intel Core i5-1035G1 10th Gen",
-    img: "https://m.media-amazon.com/images/I/41H42FebSmL._AC_SR400,600_.jpg",
-    rating: 5,
-    colors: [
-      { name: "silver", colorCode: "#6e6c77" },
-      { name: "black", colorCode: "#484848" },
-    ],
-    specification: {
-      parameter: [
-        { name: "Id", value: "1232" },
-        { name: "Brand", value: "Big-Bull" },
-        { name: "Color", value: "Silver" },
-        { name: "Shape", value: "Box" },
-        { name: "Size", value: "1*2*3" },
-        { name: "Capacity", value: "1h" },
-        { name: "Type", value: "Electronic" },
-      ],
-
-      description: {
-        paragraph: [
-          "Easy to maintain and convenient to handle, stackable serving bowls these are a must have for your kitchen.",
-          "MATERIAL : Ceramic ; COLOR : Off White , Black ; Product is Microwave and Dishwasher Safe and Lead free.",
-        ],
-      },
-    },
-  };
+ 
 
   // console.log("🚀 ~ file: [product].js:4 ~ Product ~ data", product)
 
@@ -49,13 +17,13 @@ const Product = () => {
       <div className="grid grid-rows-3 grid-cols-1 sm:grid-cols-12  items-center sm:gap-1">
 
         {/* Product title */}
-        <div className="order-1 sm:order-2 text-2xl sm:text-3xl row-span-1 font-bold sm:col-span-6 sm:row-span-1">
+        <div className="order-1 sm:order-2 text-2xl sm:text-3xl row-span-1 font-bold sm:col-span-6 sm:row-span-1 mt-10">
           <h1>{product.name}</h1>
         </div>
 
         {/* Product image */}
         <div className="order-2 flex flex-row text-center justify-center aspect-h-5 aspect-w-7 mx-20 md:mx-44  row-span-3 sm:order-1 sm:col-span-6 items-center ">
-          <img className="object-cover" src={product.img} />
+          <img className="object-contain" src={product.image} />
         </div>
 
         {/* Ratings and price */}
@@ -160,7 +128,7 @@ const Product = () => {
 
        <div className="grid grid-flow-col sm:grid-flow-row row-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-x-scroll sm:overflow-visible no-scrollbar">
        {
-         data.map((product,index)=>{
+         suggestions.map((product,index)=>{
            return( 
             <Minicard product={product}/>    
           )
@@ -175,28 +143,28 @@ const Product = () => {
   );
 };
 
-//export async function getServerSideProps(context) {
+export async function getServerSideProps(context) {
 
-// const pid = context.query.product;
-// //  console.log("🚀 ~ file: [products].js:14 ~ getServerSideProps ~ query", pid)
+const pid = context.query.product;
+//  console.log("🚀 ~ file: [products].js:14 ~ getServerSideProps ~ query", pid)
 
-// try {
-//   var requestOptions = {
-//     method: 'GET',
-//     redirect: 'follow'
-//   };
+try {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
 
-//   const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}api/product?pid=${pid}&code=getProductById`, requestOptions)
-//   const {product} =await  response.json();
-//   return { props: {product} }
-//   //console.log("🚀 ~ file: [product].js:28 ~ getServerSideProps ~ data", data)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}api/products?pid=${pid}&code=getProductById`, requestOptions)
+  const {product,suggestions} =await  response.json();
+  console.log("🚀 ~ file: [product].js:28 ~ getServerSideProps ~ data", product)
+  return { props: {product,suggestions} }
 
-// }
-// catch(err){
-// // console.log("🚀 ~ file: [product].js:30 ~ getServerSideProps ~ err", err)
-//  return { props: {} }
+}
+catch(err){
+// console.log("🚀 ~ file: [product].js:30 ~ getServerSideProps ~ err", err)
+ return { props: {} }
 
-// }
+}
 
-//}
+}
 export default Product;

@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 
 export default function Home() {
 
@@ -28,7 +27,7 @@ export default function Home() {
       <main className='h-full w-full  sm:px-9'>
 
         <div className='flex flex-col'>
-
+      
           <div className='bg-cyan-30 flex flex-col sm:flex-row justify-around mt-6'>
 
             <div className='flex flex-col justify-center grow'>
