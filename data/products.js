@@ -1,28 +1,18 @@
 const data = 
 [
-{ pid: 1, price: 33490, name: "Lenovo IdeaPad Slim 3 Intel Core i3-1115G4 11th Gen 15.6(39.62cm) FHD Laptop (8GB/256GB SSD/Win 11/Office 2021/2 Year Warranty/3 Month Game Pass/Platinum Grey/1.7Kg)", image: "https://m.media-amazon.com/images/I/61Dw5Z8LzJL._SY450_.jpg", rating: 4,tag:["Laptop","Desktop","Electronic","Computer"] },
+{ pid: 1, price: 33490, name: "Lenovo IdeaPad Slim 3 Intel Core i3-1115G4 11th Gen 15.6(39.62cm) FHD Laptop (8GB/256GB SSD/Win 11/Office 2021/2 Year Warranty/3 Month Game Pass/Platinum Grey/1.7Kg)", image: "https://m.media-amazon.com/images/I/61Dw5Z8LzJL._SY450_.jpg", rating: 4,tag:["Laptop","Desktop","Electronic","Computer","Lenovo","Lenovo Laptop","Lenovo IdeaPad"] },
 
 
-{ pid: 2, price: 33490, name: "ASUS Vivobook 14, 14.0-inch (35.56 cms) HD, Intel Core i3-1005G1 10th Gen, Thin and Light Laptop (8GB/512GB SSD/Integrated Graphics/Windows 11/Office 2021/Silver/1.60 kg), X415JA-BV322WS", image: "https://m.media-amazon.com/images/I/71WuDXpTAlL._SY450_.jpg", rating: 5,tag:["Laptop","Desktop","Electronic","Computer"] },
+{ pid: 2, price: 33490, name: "ASUS Vivobook 14, 14.0-inch (35.56 cms) HD, Intel Core i3-1005G1 10th Gen, Thin and Light Laptop (8GB/512GB SSD/Integrated Graphics/Windows 11/Office 2021/Silver/1.60 kg), X415JA-BV322WS", image: "https://m.media-amazon.com/images/I/71WuDXpTAlL._SY450_.jpg", rating: 5,tag:["Laptop","Desktop","Computer","ASUS","ASUS Laptop","Vivobook 14"] },
 
-{ pid: 3, price: 42490, name: "HP 15s,11th Gen Intel Core i3-1115G4 8GB RAM/512GB SSD 15.6-inch(39.6 cm) Micro-Edge Anti-Glare FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers", image: "https://m.media-amazon.com/images/I/81U9aJnFu6L._SX679_.jpg", rating: 4 ,tag:["Laptop","Desktop","Electronic","Computer"] },
+{ pid: 3, price: 42490, name: "HP 15s,11th Gen Intel Core i3-1115G4 8GB RAM/512GB SSD 15.6-inch(39.6 cm) Micro-Edge Anti-Glare FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers", image: "https://m.media-amazon.com/images/I/81U9aJnFu6L._SX679_.jpg", rating: 4 ,tag:["Laptop","Desktop","Electronic","Computer","HP","HP Laptop","HP 15s"] },
 
-{ pid: 4, price: 37990, name: "HP 14s, 11th Gen Intel Core i3-1115G4, 8GB RAM/256GB SSD 14-inch(35.6 cm) Micro-Edge, Anti-Glare, FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers", image: "https://m.media-amazon.com/images/I/41h8nAsiOQL._SX300_SY300_QL70_FMwebp_.jpg", rating: 4,tag:["Laptop","Desktop","Electronic","Computer"] }
+{ pid: 4, price: 37990, name: "HP 14s, 11th Gen Intel Core i3-1115G4, 8GB RAM/256GB SSD 14-inch(35.6 cm) Micro-Edge, Anti-Glare, FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers", image: "https://m.media-amazon.com/images/I/41h8nAsiOQL._SX300_SY300_QL70_FMwebp_.jpg", rating: 4, tag:["Laptop","Desktop","Electronic","Computer","HP 14s","HP","HP Laptop"] }
 
 ]
 
 const trending=
-[
-{ pid: 1, price: 33490, name: "Lenovo IdeaPad Slim 3 Intel Core i3-1115G4 11th Gen 15.6(39.62cm) FHD Laptop (8GB/256GB SSD/Win 11/Office 2021/2 Year Warranty/3 Month Game Pass/Platinum Grey/1.7Kg)", image: "https://m.media-amazon.com/images/I/61Dw5Z8LzJL._SY450_.jpg", rating: 4 },
-
-
-{ pid: 2, price: 33490, name: "ASUS Vivobook 14, 14.0-inch (35.56 cms) HD, Intel Core i3-1005G1 10th Gen, Thin and Light Laptop (8GB/512GB SSD/Integrated Graphics/Windows 11/Office 2021/Silver/1.60 kg), X415JA-BV322WS", image: "https://m.media-amazon.com/images/I/71WuDXpTAlL._SY450_.jpg", rating: 5 },
-
-{ pid: 3, price: 42490, name: "HP 15s,11th Gen Intel Core i3-1115G4 8GB RAM/512GB SSD 15.6-inch(39.6 cm) Micro-Edge Anti-Glare FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers", image: "https://m.media-amazon.com/images/I/81U9aJnFu6L._SX679_.jpg", rating: 4 },
-
-{ pid: 4, price: 37990, name: "HP 14s, 11th Gen Intel Core i3-1115G4, 8GB RAM/256GB SSD 14-inch(35.6 cm) Micro-Edge, Anti-Glare, FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers", image: "https://m.media-amazon.com/images/I/41h8nAsiOQL._SX300_SY300_QL70_FMwebp_.jpg", rating: 4 }
-
-]
+[ "HP 14s","Lenovo IdeaPad","HP 15s" ]
 
 const FullData = [
   {
@@ -56,7 +46,7 @@ const FullData = [
         ],
       },
     },
-    tag:["Laptop","Desktop","Electronic","Computer"]
+    tag:["Laptop","Desktop","Electronic","Computer","Lenovo","Lenovo Laptop","Lenovo IdeaPad"]
   },
 
   {
@@ -87,7 +77,7 @@ const FullData = [
         ],
       },
     },
-    tag:["Laptop","Desktop","Computer"]
+    tag:["Laptop","Desktop","Computer","ASUS","ASUS Laptop","Vivobook 14"]
   },
 
   {
@@ -96,7 +86,7 @@ const FullData = [
 
     specification: {
       parameter: [
-        { name: "MobelName", value: "Vivobook 14" },
+        { name: "MobelName", value: "HP 14" },
         { name: "Brand", value: "HP" },
         { name: "Color", value: "	Natural Silver" },
         { name: "RAM Memory Installed Size", value: "8 GB" },
@@ -117,7 +107,7 @@ const FullData = [
         ],
       },
     },
-    tag:["Laptop","Desktop","Electronic","Computer"]
+    tag:["Laptop","Desktop","Electronic","Computer","HP","HP Laptop","HP 15s"]
   },
 
   {
@@ -147,10 +137,13 @@ const FullData = [
         ],
       },
     },
-    tag:["Laptop","Desktop","Electronic","Computer"]
+    tag:["Laptop","Desktop","Electronic","Computer","HP 14s","HP","HP Laptop"]
   }
 
 ]
 
 
-export { data,trending,FullData}
+const tagList=["Laptop","Desktop","Electronic","Computer","Lenovo","Lenovo Laptop","ASUS","ASUS Laptop","HP 15s",
+"HP 14s","Vivobook 14","Lenovo IdeaPad","HP"]
+
+export { data,trending,FullData,tagList}

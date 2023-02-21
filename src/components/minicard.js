@@ -15,11 +15,11 @@ const Minicard = ({product}) => {
 
     {/* image of product */}
     <div className="aspect-w-4 aspect-h-3 ">
-    <img className="object-cover p-2" src={product.image} />
+    <img className="object-cover px-3" src={product.image} />
     </div>
 
     {/* product description */}
-    <h5 className="my-2 leading-6 text-lg font-medium px-2">{product.name.substring(0,99)+"..."}</h5>
+    <h5 className="my-2 leading-6 text-lg font-medium px-3">{product.name.substring(0,99)+"..."}</h5>
 
   </div>
   );
