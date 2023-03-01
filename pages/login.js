@@ -47,11 +47,11 @@ const login = () => {
   }
 
   return (
-    <div className='h-full  flex-col w-full flex-wrap flex justify-center content-center'>
+    <div className='flex-col flex-wrap flex justify-center content-center'>
 
-      <div className='px-16 sm:px-20 py-16 justify-center flex-col flex-shrink text-center items-center content-center bg-card mt-36 mb-64  sm:my-16 text-primary rounded-lg'>
+      <div className='w-full lg:w-2/5 md:w-4/5 sm:w-4/5 sm:px-20 py-8 justify-center flex-col flex-shrink text-center items-center content-center bg-card mt-10 mb-64  sm:my-16 text-primary rounded-lg'>
 
-        <div className='text-left pb-4 text-primary'>
+        <div className='text-center pb-4 text-primary'>
           <h1 className='text-3xl font-bold '>
             Sign In
           </h1>
@@ -63,7 +63,7 @@ const login = () => {
 
             <label className='my-1 text-left font-medium'>Email</label>
 
-            <input type={'email'} className='my-1 w-80 mx-1 px-2 py-1 focus:outline-none bg-white ring-2 ring-transparent rounded-md focus:ring-gray-300' name='email' value={data.email} onChange={(e) => setFieldValue(e.target)} />
+            <input type={'email'} className='my-1 w-72 mx-1 px-2 py-1 focus:outline-none bg-white ring-2 ring-transparent rounded-md focus:ring-gray-300' name='email' value={data.email} onChange={(e) => setFieldValue(e.target)} />
           </div>
 
         </div>
@@ -74,12 +74,12 @@ const login = () => {
 
             <label className='my-1 text-left  font-medium'>Password</label>
 
-            <input type={'password'} className='my-1 w-80 mx-1 py-1 px-2 focus:outline-none bg-white ring-2 ring-transparent rounded-md focus:ring-gray-300' name='password' value={data.password} onChange={(e) => setFieldValue(e.target)} />
+            <input type={'password'} className='my-1 w-72 mx-1 py-1 px-2 focus:outline-none bg-white ring-2 ring-transparent rounded-md focus:ring-gray-300' name='password' value={data.password} onChange={(e) => setFieldValue(e.target)} />
           </div>
 
         </div>
 
-        <button className={`drop-shadow-md bg-secondary-dark text-white w-80 text-xl font-semibold py-2 px-3 leading-8 my-5 rounded-md tracking-wider duration-200 hover:bg-green-500`} onClick={handlelogin}
+        <button className={`drop-shadow-md bg-secondary-dark text-white w-72 sm:w-80 text-xl font-semibold py-2 px-3 leading-8 my-5 rounded-md tracking-wider duration-200 hover:bg-green-500`} onClick={handlelogin}
         >Sign In</button>
 
 

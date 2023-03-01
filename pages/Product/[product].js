@@ -22,7 +22,7 @@ const Product = ({product,suggestions}) => {
         </div>
 
         {/* Product image */}
-        <div className="order-2 flex flex-row text-center justify-center aspect-h-5 aspect-w-7 mx-20 lg:mx-44  row-span-3 md:order-1 md:col-span-6 items-center ">
+        <div className="order-2 flex flex-row text-center justify-center aspect-h-3 aspect-w-4 md:mx-20 lg:mx-44  row-span-3 md:order-1 md:col-span-6 items-center ">
           <img className="object-contain" src={product.image} />
         </div>
 
@@ -126,7 +126,7 @@ const Product = ({product,suggestions}) => {
         Similar Products
        </h2>
 
-       <div className="grid grid-flow-col md:grid-flow-row row-auto md:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-x-scroll md:overflow-visible no-scrollbar">
+       <div className="grid grid-flow-col md:grid-flow-row row-auto md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-scroll md:overflow-visible no-scrollbar py-3">
        {
          suggestions.map((product,index)=>{
            return( 

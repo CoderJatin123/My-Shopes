@@ -2,6 +2,21 @@ import React from 'react';
 
 const Cart = () => {
 
+
+    const handleProceed=async()=>{
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '746bb34e04msh758ce4be48a9319p19b422jsn1b2062089163',
+                'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+            }
+        };
+        
+       
+        const res=await fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=Bilimora', options)
+        console.log(await res.json())
+    }  
+
     const myCart = {
         uid: "12345", cartItems: [{ pid: 1, price: 41990, name: "ASUS Vivobook 14, 14.0-inch (35.56 cms) FHD, Intel Core i5-1035G1 10th Gen", img: "https://m.media-amazon.com/images/I/41H42FebSmL._AC_SR400,600_.jpg", rating: 2, quantity:2 },
         { pid: 1, price: 41966, name: "ES ESPINHO Maddison Solid Sal Wood Fabric Upholstered 3 Seater", img: "https://m.media-amazon.com/images/I/51cf92qyyAS.jpg", rating: 5 ,quantity:2},]
@@ -9,7 +24,7 @@ const Cart = () => {
     return (
         <div className=''>
 
-            <div className=' grid grid-cols-6 lg:grid-cols-6 md:grid-cols-7 my-10 lg:my-6 mx-6 md:mx-1 text-primary'>
+            <div className=' grid grid-cols-6 lg:grid-cols-6 md:grid-cols-7 my-8 lg:my-6 mx-0 md:mx-1 text-primary'>
 
 
                 {/* products in carts section */}
@@ -20,25 +35,25 @@ const Cart = () => {
 
                     {myCart.cartItems.map((items, index) => {
                         return (
-                            <div key={index} className='bg-card flex flex-row md:flex-col px-5 py-3 justify-between items-center rounded-md  lg:flex-row'>
+                            <div key={index} className='bg-card flex flex-col md:flex-col px-5 py-3 justify-between items-center rounded-md  lg:flex-row'>
 
                                 {/* image   */}
-                                <div className=' w-32 md:w-full lg:w-44 mx-2 md:px-16 md:my-3 lg:my-auto lg:px-0'>
+                                <div className=' w-full px-10 py-6 md:w-full lg:w-44 md:px-16 md:my-3 lg:my-auto lg:px-0'>
                                     <div className='aspect-h-3 aspect-w-4 '>
                                         <img className='object-cover' src={items.img} />
                                     </div>
                                 </div>
 
                                 {/* item name */}
-                                <div className='font-medium text-base pl-10 my-1 lg:my-1 md:my-6'>
-                                    <h2>
+                                <div className=' font-medium text-base px-2 lg:pl-10 my-1 lg:my-1 md:my-6'>
+                                    <h2 className='w-full '>
                                         {items.name}
                                     </h2>
                                 </div>
 
 
                                 {/* item price, rating and quantity*/}
-                                <div className='flex flex-col md:flex-row lg:flex-col  mr-3 justify-center md:items-center items-end lg:items-end w-full'>
+                                <div className='flex flex-col md:flex-row lg:flex-col  mr-3 justify-center md:items-center items-start lg:items-end w-full'>
 
                                       {/* ratting and price*/}
                                     <div className='flex flex-row items-center text-xl font-semibold '>
@@ -61,7 +76,7 @@ const Cart = () => {
 
                                     </div>
 
-                                    <h5 className='font-semibold my-4 md:mx-3 mx-0 lg:mx-0'>
+                                    <h5 className='font-semibold mb-5 md:mx-3 mx-5 lg:mx-0'>
                                     Qty : {items.quantity}
                                     </h5>
 
@@ -77,10 +92,10 @@ const Cart = () => {
                 </div>
 
                 {/* payment section */}
-                <div className='col-span-full order-1 md:order-2 md:col-span-3 lg:col-span-2 bg-card flex flex-col py-8 px-12 mx-1 md:px-10 lg:px-16 rounded-lg'>
+                <div className='col-span-full order-1 md:order-2 md:col-span-3 lg:col-span-2 bg-card flex flex-col py-8 px-10  md:px-10 lg:px-16 rounded-lg lg:mx-6'>
 
-                    <h2 className='text-3xl lg:text-3xl mt-3 md:mt-2 mb-2 sm:mb-5 font-semibold'>
-                        Order summery
+                    <h2 className='text-3xl lg:text-3xl md:mt-2 mb-5 sm:mb-5 font-semibold'>
+                     Order summery
                     </h2>
 
                     {/* payment detail */}
@@ -135,17 +150,14 @@ const Cart = () => {
 
                     </div>
 
-                    <button className='bg-secondary-dark drop-shadow-lg text-xl font-bold text-white  my-6 py-3  leading-9 rounded-md tracking-wider'>Proceed to Pay</button>
+                    <button className='bg-secondary-dark drop-shadow-lg text-xl font-semibold text-white  my-6 py-3 leading-8 rounded-md tracking-wider' onClick={handleProceed} >Proceed to Pay</button>
 
-                    <h5 className='my-3 text-lg'>
-                        Continue Shopping
-                    </h5>
-
-                    <h5 className='my-2 text-xl font-semibold'>
+                    <h5 className='text-xl font-semibold mt-3 mb-1'>
                         Need Help ?
                     </h5>
-
-
+                    <h5 className='my-1 text-lg'>
+                        Continue Shopping
+                    </h5>
 
                 </div>
 

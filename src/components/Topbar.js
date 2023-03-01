@@ -89,11 +89,11 @@ const Topbar = () => {
 
       </div>
 
-      <div className='px-1 place-self-center justify-start sm:justify-end flex flex-row  font-medium  sm:col-span-3 col-span-2 sm:order-3 order-4 w-full text-xl sm:text-base'>
+      <div className='px-1 place-self-center justify-start sm:justify-end flex flex-row  font-medium  sm:col-span-3 col-span-2 sm:order-3 order-4 w-full text-xl sm:text-base '>
 
         {/* all options */}
 
-        <div className='flex flex-row sm:w-full  md:ml-10 w-9/12 lg:w-2/3 justify-between font-medium '>
+        <div className='flex flex-row sm:w-full  md:ml-10 w-full lg:w-2/3 justify-between font-medium '>
           <h3 className='cursor-pointer' onClick={(e)=>handleCategory()}>Category</h3>
 
 
