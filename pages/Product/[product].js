@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Minicard from "@/src/components/minicard";
 
-const Product = ({product,suggestions}) => {
+const Product = ({product,suggestions,category}) => {
 
   const [isFavorite, setFavorite] = useState(false);
  
@@ -10,20 +10,21 @@ const Product = ({product,suggestions}) => {
   // console.log("🚀 ~ file: [product].js:4 ~ Product ~ data", product)
 
   return (
-    <div className="flex justify-center flex-col py-1 md:py-10 text-primary">
+    <div className="flex justify-center flex-col py-0 md:py-10 text-primary">
 
+     {product?<>
 
       {/* Product overview */}
       <div className="grid grid-rows-3 grid-cols-1 md:grid-cols-12  items-center md:gap-1 ">
 
         {/* Product title */}
-        <div className="order-1 md:order-2 text-2xl md:text-3xl row-span-1 font-bold md:col-span-6 md:row-span-1 mt-10">
+        <div className="order-1 md:order-2 text-2xl md:text-3xl row-span-auto font-bold md:col-span-6 md:row-span-1 lg:mt-10">
           <h1>{product.name}</h1>
         </div>
 
         {/* Product image */}
-        <div className="order-2 flex flex-row text-center justify-center aspect-h-3 aspect-w-4 md:mx-20 lg:mx-44  row-span-3 md:order-1 md:col-span-6 items-center ">
-          <img className="object-contain" src={product.image} />
+        <div className="order-2 flex flex-row text-center justify-center aspect-h-3 aspect-w-4 md:mx-20 lg:mx-36 row-span-1 sm:row-span-3 md:order-1 md:col-span-6 items-center ">
+          <img className="object-cover lg:object-contain" src={product.image} />
         </div>
 
         {/* Ratings and price */}
@@ -130,14 +131,16 @@ const Product = ({product,suggestions}) => {
        {
          suggestions.map((product,index)=>{
            return( 
-            <Minicard key={index} product={product}/>    
+            <Minicard key={index} product={product} category={category}/>    
           )
         })
       }
       </div>
        
       </div>
-
+      
+      </>:<>Data not available</>
+     }
 
     </div>
   );
@@ -145,7 +148,10 @@ const Product = ({product,suggestions}) => {
 
 export async function getServerSideProps(context) {
 
-const pid = context.query.product;
+const query = context.query;
+const {category}=query;
+console.log("🚀 ~ file: [product].js:149 ~ getServerSideProps ~ query", query)
+
 //  console.log("🚀 ~ file: [products].js:14 ~ getServerSideProps ~ query", pid)
 
 try {
@@ -153,11 +159,18 @@ try {
     method: 'GET',
     redirect: 'follow'
   };
+  
+  const response=await fetch(`http://localhost:3000/api/products?pid=${query.pid}&code=getProductById&category=${category}`, requestOptions)
+  const Data=await response.json();
+  
+  if(Data.success){
+    const {product,suggestions}=Data;
+   // console.log("🚀 ~ file: [product].js:168 ~ getServerSideProps ~ product >>>", product)
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}api/products?pid=${pid}&code=getProductById`, requestOptions)
-  const {product,suggestions} =await  response.json();
-  console.log("🚀 ~ file: [product].js:28 ~ getServerSideProps ~ data", product)
-  return { props: {product,suggestions} }
+
+    return { props: {product,suggestions,category} }
+  }
+  
 
 }
 catch(err){

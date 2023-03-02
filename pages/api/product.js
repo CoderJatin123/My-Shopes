@@ -5,7 +5,7 @@ export default function handler(req, res) {
     if(req.method=='GET'){
 
         const reqPid=req.query.pid;
-
+      
         const {code}=req.query;
 
         if(code=='getProductById')

@@ -1,4 +1,4 @@
-import { FullData, data } from "@/data/products"
+import { data,FullData1,data1 } from "@/data/products"
 
 export default function handler(req, res) {
 
@@ -8,17 +8,42 @@ export default function handler(req, res) {
 
         if (code == 'getProductById') {
             const reqPid = req.query.pid;
-            const product = FullData.find(({ pid }) => pid == reqPid)
+            const category=req.query.category;
 
-            let TAG = product.tag;
+            const {success,product,suggestions}=getproductByid(reqPid,category)
 
-            const suggestions = data.filter((pro) => {
-                return (pro.tag.some(A => TAG.includes(A)) && pro.pid != reqPid)
-            })
+            // const product = FullData.find(({ pid }) => pid == reqPid)
 
-            res.status(200).json({ success: true, product, suggestions })
+            // let TAG = product.tag;
+
+            // const suggestions = data.filter((pro) => {
+            //     return (pro.tag.some(A => TAG.includes(A)) && pro.pid != reqPid)
+            // })
+
+          
+            if(success)  {
+                res.status(200).json({ success: true, product, suggestions })
+            }
+            else{
+                res.status(206).json({ success: false, msg:"Pid or category not defined."})
+            }
         }
-
+         
+        else if(code=='getproductsBycatgory'){
+        const {category}=req.query
+        
+        const {data}=data1.find((CATEGORY)=>
+        CATEGORY.category==category
+      )
+        
+      if(data){
+          res.status(200).json({success:true,data})
+      }
+      else{
+        res.status(206).json({success:false,msg:"Category not available"})
+      }
+           
+        }
         else {
             res.status(206).json({ success: false, msg: "Code missing." })
         }
@@ -28,11 +53,10 @@ export default function handler(req, res) {
 
         if (code == 'searchByTags') {
 
-
-            const tags = JSON.parse(req.body.tags)
+            const tags = JSON.parse(req.body.tags);
 
             const products = data.filter((pro) => {
-                return (pro.tag.some(A => tags.includes(A)))
+                return (pro.tag.some(A => tags.includes(A.toLowerCase()) || tags.includes(A)))
             })
 
            // console.log("🚀 ~ file: products.js:46 ~ productList ~ productList", productList)
@@ -51,3 +75,29 @@ export default function handler(req, res) {
 
 
 }
+const getproductByid=(Pid,category)=>{
+    
+    if(Pid && category){
+
+    // data is list of all items that belongs to given category
+
+    const {data}= FullData1.find((Catagories)=>
+       Catagories.category==category
+     )
+    
+    // now fetch product full detail from main data list using pid
+    const product=data.find(({pid})=>pid==Pid)
+
+
+    // now finding related productes
+
+    const suggestions = data.filter((pro) => {
+        return (pro.tag.some(A => product.tag.includes(A)) && pro.pid != Pid)
+    })
+    return {success:true,product,suggestions}
+    }
+    else{
+        return {success:false, msg:"Pid or category not defined."}
+    }
+    
+   }

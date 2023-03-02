@@ -1,7 +1,7 @@
 import UserContext from './userContext';
-import { useState ,useEffect} from 'react';
+import { useState } from 'react';
 import React from 'react';
-import { data, tagList} from '@/data/products';
+import { tagList} from '@/data/products';
 import { useRouter } from 'next/router';
 
 const Userstate = (prop) => {

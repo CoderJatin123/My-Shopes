@@ -1,10 +1,9 @@
-import Image from 'next/image';
 import React from 'react';
 import Card from '@/src/components/card';
 import { useRouter } from 'next/router';
 
-const products = ({ data }) => {
-  const router=useRouter();
+const products = ( {data,category} ) => {
+  const router = useRouter();
   return (
 
     <div className='flex justify-center'>
@@ -17,9 +16,9 @@ const products = ({ data }) => {
 
             <div className='grid grid-cols-1 sm:grid-cols-2 md:sm:grid-cols-3  lg:grid-cols-4 font-medium text-primary gap-3 sm:gap-4'>
 
-              {data.products.map((item, index) => {
+              {data.map((item, index) => {
                 return (
-                  <Card key={index} product={item} />
+                  <Card key={index} product={item} category={category}/>
                 )
               })}
 
@@ -29,22 +28,22 @@ const products = ({ data }) => {
 
           : <div className='w-full h-screen flex justify-center items-center text-primary text-opacity-90'>
 
-             <div className='flex items-center flex-col lg:flex-row'>
-               <div className='w-44 h-44'>
-                <img src={'/no_item.png'} className='obj' fill/>
-               </div>
+            <div className='flex items-center flex-col lg:flex-row'>
+              <div className='w-44 h-44'>
+                <img src={'/no_item.png'} className='obj' fill />
+              </div>
 
-             <div className='flex flex-col'>
-             <h1 className='text-2xl '>
-                Sorry, this item not available in our store.
-             </h1>
-             <h3 className='my-4 font-medium text-lg cursor-pointer text-secondary-dark' onClick={(e)=>{
-             router.replace('/')
-             }}>
-              Back to home
-             </h3>
-             </div>
-             </div>
+              <div className='flex flex-col'>
+                <h1 className='text-2xl '>
+                  Sorry, this item not available in our store.
+                </h1>
+                <h3 className='my-4 font-medium text-lg cursor-pointer text-secondary-dark' onClick={(e) => {
+                  router.replace('/')
+                }}>
+                  Back to home
+                </h3>
+              </div>
+            </div>
           </div>
       }
     </div>
@@ -54,27 +53,28 @@ const products = ({ data }) => {
 
 export async function getServerSideProps(context) {
 
-  
-  const tags = JSON.stringify(context.query.tags)
+
+  const {category} = context.query
   try {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      tags
-    });
-
+    if(category!=null)
+   
     var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
+      method: 'GET',
       redirect: 'follow'
     };
-
-    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}api/products?code=searchByTags`, requestOptions)
     
-    const data = await response.json()
-    return { props: {data} }
+    const responce=await fetch(`http://localhost:3000/api/products?code=getproductsBycatgory&category=${category}`, requestOptions)
+    const Data=await responce.json();  
+    
+    if(Data.success){
+
+      const {data}=Data;
+      //console.log(data)
+      return { props: { data,category} }
+    }
+
+    
 
   }
   catch (err) {
