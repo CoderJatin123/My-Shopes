@@ -15,11 +15,12 @@ const Userstate = (prop) => {
   const onSearch=()=>{
 
     if(search!=""){
-      var FilterdData=tagList.filter((tag)=>{return tag.toLocaleLowerCase().includes(search.toLocaleLowerCase())})
-      setTags(FilterdData)
-      
-      //console.log(" Authstste ", FilterdData)
-      router.push({pathname:'/products/products',query:{tags:FilterdData}})
+         
+   
+   
+  router.push({pathname:'/products/products',query:{keyword:search}})
+ //     router.push({pathname:'/products/products',query:{tags:FilterdData}})
+
     }
     
 

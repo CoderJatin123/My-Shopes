@@ -5,7 +5,7 @@ const category = () => {
   
   const router=useRouter();
   
-  const categories = [{ name: "Groceries", img: "https://www.shutterstock.com/image-illustration/shopping-basket-full-variety-grocery-260nw-1978733351.jpg",tag:"groceries" },
+  const categories = [{ name: "Groceries", img: "https://media.istockphoto.com/id/861188910/photo/different-types-of-food-on-rustic-wooden-table.jpg?s=1024x1024&w=is&k=20&c=_3QH87_AYm5YgcpC9L4JVmTKm49QydKDr9sJq7IvUu4=",tag:"groceries" },
 
   { name: "Electronic", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHw3cgLUBVBm9FwRbC6pajyghdR1IrwjdRBRUuDi5Qrw&s", tag:"electronic" },
  
@@ -21,7 +21,7 @@ const category = () => {
 
   const handleCatagory=(name)=>{
     const category=name.toLowerCase();
-    router.push({pathname:'/products/products',query:{category,tags:[]}})
+    router.push({pathname:'/products/products',query:{category}})
   }
 
   return (

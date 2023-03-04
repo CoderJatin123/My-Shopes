@@ -1,4 +1,4 @@
-import { data,FullData1,data1 } from "@/data/products"
+import {tags1,FullData1,data1 } from "@/data/products"
 
 export default function handler(req, res) {
 
@@ -32,16 +32,19 @@ export default function handler(req, res) {
         else if(code=='getproductsBycatgory'){
         const {category}=req.query
         
-        const {data}=data1.find((CATEGORY)=>
+        const Data=data1.find((CATEGORY)=>
         CATEGORY.category==category
       )
+      if(Data){
+     
+            res.status(200).json({success:true,data:Data.data})
         
-      if(data){
-          res.status(200).json({success:true,data})
       }
       else{
         res.status(206).json({success:false,msg:"Category not available"})
       }
+        
+      
            
         }
         else {
@@ -53,15 +56,19 @@ export default function handler(req, res) {
 
         if (code == 'searchByTags') {
 
-            const tags = JSON.parse(req.body.tags);
+           const {keyword} =req.body;
+           const category = getCategory(keyword);
 
-            const products = data.filter((pro) => {
-                return (pro.tag.some(A => tags.includes(A.toLowerCase()) || tags.includes(A)))
-            })
+           
+           const data=getproductByTag(keyword,category)
+          //  console.log("🚀 ~ file: products.js:61 ~ handler ~ data", data)
 
-           // console.log("🚀 ~ file: products.js:46 ~ productList ~ productList", productList)
-
-            res.status(200).json({ success: true ,products})
+            if(data){
+                res.status(200).json({ success: true,data:data,category})
+            }
+           else{
+            res.status(206).json({ success: false,msg:"Sorry product not found."})
+           }
 
         }
     }
@@ -101,3 +108,41 @@ const getproductByid=(Pid,category)=>{
     }
     
    }
+
+
+   const getCategory=(pname)=>{
+
+    // get catagory by product name
+    let category=tags1.find((item)=>item.tags.includes(pname))
+
+    if(category){
+        return category.category;
+    }
+    else{
+        return -1;
+    }
+   }
+
+   const getproductByTag=(tag,category)=>{
+    
+    if(tag && category){
+
+    // data is list of all items that belongs to given category
+  
+    let tempData=FullData1.find((Catagories)=>
+       Catagories.category==category
+     )
+    
+    if(tempData){
+    const {data}=tempData;   
+    const filterData = data.filter((pro) => {
+        return (pro.tag.some(A => tag.toLowerCase()==A.toLowerCase()))
+    })
+    return {success:true,filterData}
+    }
+}
+    else{
+        return {success:false}
+    }
+}
+   

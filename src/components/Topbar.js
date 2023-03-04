@@ -45,7 +45,7 @@ const Topbar = () => {
 
   return (
 
-    <div className='grid grid-cols-2 sm:grid-cols-8 justify-between items-center py-1 place-content-between md:bg-cyan-4001  sm:bg-yellow-4001 pt-5 sm:pt-1 sm:px-2  text-primary mx-6 sm:mx-5'>
+    <div className='grid grid-cols-2 sm:grid-cols-8 justify-between items-center py-1 place-content-between  pt-5 sm:pt-1 sm:px-2  text-primary mx-6 sm:mx-5'>
 
       <div className='sm:col-span-2  ml-1 flex flex-row items-center flex-shrink sm:order-1 cursor-pointer'
         onClick={(e) => router.push('/')}
@@ -57,7 +57,7 @@ const Topbar = () => {
       </div>
 
 
-      <div className='w-full rounded-sm my-6 sm:my-2 sm:col-span-2 flex flex-row justify-end sm:order-2 col-span-2 order-3'>
+      <div className='w-full rounded-sm my-4 sm:my-2 sm:col-span-2 flex flex-row justify-end sm:order-2 col-span-2 order-3'>
         {/* searchbar */}
 
         <div className=' bg-card h-full w-full sm:px-3 sm:py-2 py-3 px-5 rounded-lg sm:rounded-md'>
@@ -108,9 +108,9 @@ const Topbar = () => {
           <h3 className='cursor-pointer' >Help</h3>
         </div>
       </div>
-      <div className='sm:order-4 order-2 w-full flex justify-end sm:justify-center text-primary-dark text-end px-1 sm:text-center  sm:font-medium text-2xl font-semibold sm:text-base  '>
+      <div className='sm:order-4 order-2 w-full flex justify-end sm:justify-center text-primary-dark text-end px-1 sm:text-center  sm:font-medium text-xl font-semibold sm:text-xl  '>
 
-        <button className='py-1 rounded-md sm:rounded-sm px-2' onClick={(e) => { handleLogin() }} >Login</button>
+        <button className='py-1 rounded-md sm:rounded-sm px-2 ' onClick={(e) => { handleLogin() }} >Login</button>
       </div>
 
 

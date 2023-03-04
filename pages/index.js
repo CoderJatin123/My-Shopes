@@ -4,7 +4,7 @@ export default function Home() {
 
   const cards = [{
     img: "https://m.media-amazon.com/images/I/812B6F8vJwL._SX450_.jpg",
-    title: "Up to 60% off | Home decor picks from local shops"
+    title: "Up to 60% off | Home decor picks from local shops",
   },
 
   {
@@ -38,11 +38,7 @@ export default function Home() {
                   {/* Initial discount */}
                   Get <span className='text-red-500 px-1'> 70%</span>off on first purchase.
                 </h1>
-                <div className='bg-red-light my-6 '>
-                  <h3 className='text-primary text-lg py-6 pl-5 font-semibold'>
-                    Diwali festival starts from 12 oct
-                  </h3>
-                </div>
+                
               </div>
 
             </div>

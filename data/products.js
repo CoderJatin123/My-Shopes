@@ -352,7 +352,8 @@ const FullData1 = [
 
         { pid: 3, price: 42490, name: "HP 15s,11th Gen Intel Core i3-1115G4 8GB RAM/512GB SSD 15.6-inch(39.6 cm) Micro-Edge Anti-Glare FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers", image: "https://m.media-amazon.com/images/I/81U9aJnFu6L._SX679_.jpg", rating: 4, tag: ["Laptop", "Desktop", "Electronic", "Computer", "HP", "HP Laptop", "HP 15s"] },
 
-        { pid: 4, price: 37990, name: "HP 14s, 11th Gen Intel Core i3-1115G4, 8GB RAM/256GB SSD 14-inch(35.6 cm) Micro-Edge, Anti-Glare, FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers", image: "https://m.media-amazon.com/images/I/41h8nAsiOQL._SX300_SY300_QL70_FMwebp_.jpg", rating: 4, tag: ["Laptop", "Desktop", "Electronic", "Computer", "HP 14s", "HP", "HP Laptop"] }
+        { pid: 4, price: 37990, name: "HP 14s, 11th Gen Intel Core i3-1115G4, 8GB RAM/256GB SSD 14-inch(35.6 cm) Micro-Edge, Anti-Glare, FHD Laptop/Alexa Built-in/Win 11/Intel UHD Graphics/Dual Speakers", image: "https://m.media-amazon.com/images/I/41h8nAsiOQL._SX300_SY300_QL70_FMwebp_.jpg", rating: 4, tag: ["Laptop", "Desktop", "Electronic", "Computer", "HP 14s", "HP", "HP Laptop"] },
+       
       ],  
 
     },
